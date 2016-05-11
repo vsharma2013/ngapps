@@ -9,7 +9,9 @@ let corsOptions = {
 }
 
 let collections = {
-	documents : 'documents'
+	documents : 'documents',
+	counters : 'counters',
+	documents_archive : 'documents-archive'
 }
 
 let config_local = {

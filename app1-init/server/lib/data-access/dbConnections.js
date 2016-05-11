@@ -12,7 +12,7 @@ class DbConnections{
     constructor(){
         this.connections = {};
         this.counters = [
-			{ _id : 'req_id', seq : 0, collectionName : config.collections.documents }
+			{ _id : 'doc_id', seq : 0, collectionName : config.collections.documents }
         ];
         this.connectOptions = {
 			server : {
@@ -54,7 +54,7 @@ class DbConnections{
 
     * getCounterValue(ctr, db){
         let res = yield db.collection(ctr.collectionName).find({}, {_id : 0, id : 1}).sort({id : -1}).limit(1).toArray();
-        if(_.isEmpt(res)) return ctr;
+        if(_.isEmpty(res)) return ctr;
 
         let ctrVal = _.extend({}, ctr);
         ctrVal.seq = res[0].id;
