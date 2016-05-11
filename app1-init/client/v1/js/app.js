@@ -23,6 +23,4 @@
 		templateUrl : 'partials/doc-detail.html',
 		controller : 'docDetailController'
 	};
-
-
 })();

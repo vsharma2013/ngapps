@@ -11,6 +11,7 @@ class DocumentManager{
     
     * saveDocument(cDoc, tenantId){
 		yield this.archiveOldDocuments(cDoc, tenantId);
+		++cDoc.version;
 		let nDoc = yield dbMgr.saveDocument(cDoc, tenantId);
 		if(nDoc._id) 
 			delete nDoc._id;

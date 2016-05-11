@@ -97,3 +97,11 @@ ul.specs dt {
 h1 {
   border-bottom: 1px solid gray;
 }
+
+.btnSave{
+    float: right;
+    position: relative;
+    right: 10%;
+    margin-top: 1%;
+    width: 95px;
+}
