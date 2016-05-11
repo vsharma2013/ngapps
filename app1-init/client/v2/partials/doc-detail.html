@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <span class="col-md-1">Name</span>
+    <input class="col-md-2" type="text" ng-model="vm.doc.name"></input>
+    <span class="col-md-1">Number</span>
+    <input class="col-md-2" type="text" ng-model="vm.doc.number"></input>
+    <span class="col-md-1">Type</span>
+    <input class="col-md-2" type="text" ng-model="vm.doc.type.name"></input>
+    <span class="col-md-1">Created by</span>
+    <input class="col-md-2" type="text" ng-model="vm.doc.createdBy.name"></input>
+  </div>
+  <div class="row">
+    <span class="col-md-1">Source</span>
+    <input class="col-md-2" type="text" ng-model="vm.doc.source.name"></input>
+    <span class="col-md-1">Status</span>
+    <input class="col-md-2" type="text" ng-model="vm.doc.status.name"></input>
+    <span class="col-md-1">Currency</span>
+    <input class="col-md-2" type="text" ng-model="vm.doc.currency.name"></input>
+    <span class="col-md-1">Business unit</span>
+    <input class="col-md-2" type="text" ng-model="vm.doc.businessUnit.name"></input>
+  </div>
+  <div class="row">
+  	<input class="btnSave"type="button" value="Save" ng-click="saveDoc()"></input>
+  </div>
+</div>

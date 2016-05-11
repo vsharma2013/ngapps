@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      Search: <input ng-model="query">
+      Sort by : <select ng-model="vm.orderProp">
+      				<option value="name">Name</option>
+      				<option value="number">Number</option>
+      			</select>
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="phones">
+        <li ng-repeat="doc in vm.docs | filter:query | orderBy : orderProp">
+          <a ng-href="#/docs/{{doc.id}}">{{doc.name}}</a>
+          <p>{{doc.number}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
