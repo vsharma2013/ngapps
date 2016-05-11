@@ -9,7 +9,7 @@ let corsOptions = {
 }
 
 let collections = {
-	documents : 'documents',
+	documents : 'documents'
 }
 
 let config_local = {
@@ -20,9 +20,9 @@ let config_local = {
 	corsOptions : corsOptions,
 	collections : collections,
 	logger : {
-		logFileName : './log/app',
-		errorLogFileName : './log/app_error'
-	}
+		logFileName : __dirname.replace('config', 'log') + '/app',
+		errorLogFileName : __dirname.replace('config', 'log') + '/app_error'
+	},
 	dataSources : {
 		docdb : {
 			conn_str : 'mongodb://localhost:27017/DocumentDB'

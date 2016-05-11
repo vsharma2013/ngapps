@@ -8,9 +8,9 @@ var cors = require('kcors');
 var common = require('koa-common');
 var gzip = require('koa-gzip');
 var bodyParser = require('koa-bodyparser');
-var config = require('./../config/config');
-var apiResponse = require('./utils/apiResponse.js');
-var dbConns = require('./data-access/dbConnections');
+var config = require('./config/config');
+var apiResponse = require('./lib/utils/apiResponse');
+var dbConns = require('./lib/data-access/dbConnections');
 
 //var apiRoutes = require('./routes');
 
