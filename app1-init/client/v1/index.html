@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html  lang="en" ng-app="documentApp">
 <head>
 	<title>NG App-1</title>
+	<link rel="stylesheet" href="./../bootstrap/dist/css/bootstrap.css">
+  	<link rel="stylesheet" href="index.css">
 </head>
-<body>
+<body ng-controller="listController">
 	<h2>Hello NG</h2>
+	<div class="container-fluid">
+	  <div class="row">
+	    <div class="col-md-2">
+	      Search: <input ng-model="query">
+	      Sort by : <select ng-model="orderProp">
+	      				<option value="name">Name</option>
+	      				<option value="number">Number</option>
+	      			</select>
+	    </div>
+	    <div class="col-md-10">
+	      <!--Body content-->
+
+	      <ul class="phones">
+	        <li ng-repeat="doc in docs | filter:query | orderBy : orderProp">{{doc.name}}
+	          <p>{{doc.number}}</p>
+	        </li>
+	      </ul>
+
+	    </div>
+	  </div>
+	</div>
 </body>
 <script type="text/javascript" src="./../angular/angular.min.js"></script>
+<script type="text/javascript" src="js/controllers.js"></script>
 </html>
