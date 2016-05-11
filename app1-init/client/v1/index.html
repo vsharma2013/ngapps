@@ -20,7 +20,8 @@
 	      <!--Body content-->
 
 	      <ul class="phones">
-	        <li ng-repeat="doc in docs | filter:query | orderBy : orderProp">{{doc.name}}
+	        <li ng-repeat="doc in docs | filter:query | orderBy : orderProp">
+	          <a ng-href="/api/doc/{{doc.id}}">{{doc.name}}</a>
 	          <p>{{doc.number}}</p>
 	        </li>
 	      </ul>

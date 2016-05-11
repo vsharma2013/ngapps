@@ -9,4 +9,5 @@
 		});
 		$scope.orderProp = 'name';
 	}
+	listController.$inject = ['$scope', '$http'];
 })();
