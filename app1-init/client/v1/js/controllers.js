@@ -1,13 +1,19 @@
 (function(){
 	angular
-	.module('documentApp', [])
-	.controller('listController', listController)
+	.module('documentControllers', [])
+	.controller('docListController', docListController)
+	.controller('docDetailController', docDetailController)
 
-	function listController($scope, $http){
+	function docListController($scope, $http){
 		$http.get('/api/doc').success(function(data){
 			$scope.docs = data.result;
 		});
 		$scope.orderProp = 'name';
 	}
-	listController.$inject = ['$scope', '$http'];
+	docListController.$inject = ['$scope', '$http'];
+
+	function docDetailController($scope, $http){
+
+	}
+	docDetailController.$inject = ['$scope', '$http'];
 })();
