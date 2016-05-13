@@ -6,6 +6,7 @@
 		.directive('myCustomer2', function() { return MyCustomer2; })
 		.directive('myCustomer3', function() { return MyCustomer3; })
 		.directive('myCurrentTime', MyCurrentTime)
+		.directive('myDialog', function() { return MyDialog;})
 
 	function Controller($scope){
 		$scope.name = 'Vishal Sharma';
@@ -53,5 +54,12 @@
 		}
 		return { link : link }
 	}
-	MyCurrentTime.$inject = ['$interval', 'dateFilter']
+	MyCurrentTime.$inject = ['$interval', 'dateFilter'];
+
+	var MyDialog = {
+		restrict : 'E',
+		scope : {},
+		transclude : true,
+		templateUrl : 'my-dialog.html'
+	};
 })();
