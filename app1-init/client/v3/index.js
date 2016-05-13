@@ -2,15 +2,18 @@
 	angular
 		.module('directiveApp', [])
 		.controller('Controller', Controller)
-		.directive('myCustomer', function() { return MyCustomer })
-		.directive('myCustomer2', function() { return MyCustomer2 })
-		.directive('myCustomer3', function() { return MyCustomer3 });
+		.directive('myCustomer',  function() { return MyCustomer; })
+		.directive('myCustomer2', function() { return MyCustomer2; })
+		.directive('myCustomer3', function() { return MyCustomer3; })
+		.directive('myCurrentTime', MyCurrentTime)
 
 	function Controller($scope){
 		$scope.name = 'Vishal Sharma';
 		$scope.address = 'D-402 Silver Skyscapes';
 		$scope.igor = { name : 'Igor', address : 'Igore address'};
 		$scope.naomi = { name : 'Naomi', address : 'Naomi address'};
+
+		$scope.format = 'M/d/yy h:mm:ss a';
 	}
 	Controller.$inject = ['$scope'];
 
@@ -30,4 +33,25 @@
 		scope : { cinfo : '=info' },
 		template : '<div> Name3 : {{cinfo.name}}</br>    Address3 : {{cinfo.address}}'
 	};
+
+	function MyCurrentTime($interval, dateFilter){
+		function link(scope, element, attrs){
+			var tid, format = scope.format;
+
+			function updateTime() {
+				element.text(dateFilter(new Date(), format));
+			}
+
+			scope.$watch(attrs.myCurrentTime, function(value){
+				format = value;
+				updateTime();
+			});
+
+			element.on('$destroy', function() { $interval.cancel(tid) });
+
+			tid = $interval(updateTime, 1000);
+		}
+		return { link : link }
+	}
+	MyCurrentTime.$inject = ['$interval', 'dateFilter']
 })();
