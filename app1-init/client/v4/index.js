@@ -1,9 +1,10 @@
 (function(){
 	angular
-		.module('directiveApp', [])
-		.controller('Controller', Controller)
+		.module('heroApp', [])
+		.controller('mainCtrl', Controller);
 
-	function Controller($scope){
+	function Controller() {
+	  this.hero = {name: 'Spawn'};
 	}
 	Controller.$inject = ['$scope'];
 })();

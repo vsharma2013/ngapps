@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="directiveApp">
+<html ng-app="heroApp">
 <head>
 	<title>NG App-3</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
-	<div ng-controller="Controller">
-		
+	<div ng-controller="mainCtrl as ctrl">
+	  <b>Hero</b><br>
+	  <hero-detail hero="ctrl.hero"></hero-detail>
 	</div>
 </body>
 <script type="text/javascript" src="./../angular/angular.js"></script>
 <script src="./../angular-route/angular-route.js"></script>
 <script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="heroDetail.js"></script>
 </html>
