@@ -2,6 +2,7 @@
 <html ng-app="directiveApp">
 <head>
 	<title>NG App-3</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
 	<div ng-controller="Controller">
@@ -25,6 +26,18 @@
 		<span>----------------------------------------------</span>
 		</br>		
 		<my-dialog>Chekcout the contents : {{name}}</my-dialog>
+		</br>
+		<my-tabs>
+			<my-pane title="Hello">
+				<p>Hello: this content is from HELLO tab</p>
+			</my-pane>
+			<my-pane title="World">
+				<em>World, welcome to my tab in WORLD</em>
+				<p>
+					<a href ng-click="i = i + 1">counter : {{i || 0}}</a>
+				</p>
+			</my-pane>
+		</my-tabs>
 	</div>
 </body>
 <script type="text/javascript" src="./../angular/angular.js"></script>
