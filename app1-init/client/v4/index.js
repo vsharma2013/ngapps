@@ -6,5 +6,4 @@
 	function Controller() {
 	  this.hero = {name: 'Spawn'};
 	}
-	Controller.$inject = ['$scope'];
 })();
