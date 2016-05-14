@@ -17,8 +17,6 @@
 		$scope.naomi = { name : 'Naomi', address : 'Naomi address'};
 
 		$scope.format = 'M/d/yy h:mm:ss a';
-
-		
 	}
 	Controller.$inject = ['$scope'];
 
