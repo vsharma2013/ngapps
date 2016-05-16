@@ -10,7 +10,6 @@ function renderComment(){
 		   </div>
 }
 
-
 function renderCommentList(){
 	var comments = this.props.data.map(function(c){
 		return <Comment author = {c.cuthor}  key={c.id}>{c.text}</Comment>;
@@ -19,16 +18,16 @@ function renderCommentList(){
 	return <div className='commentList'>{comments} </div>;		  
 }
 
+function renderForm(){
+	return <div className='commentForm'>Hello world, I am a comment form.</div>;
+}
+
 function renderCommentBox(){
 	return <div className='commentBox'>
 				<h2>Comments</h2>
 				<CommentList data = {this.props.data}/>
 				<CommentForm />
 			</div>;
-}
-
-function renderForm(){
-	return <div className='commentForm'>Hello world, I am a comment form.</div>;
 }
 
 var Comment     = React.createClass({ render : renderComment });
