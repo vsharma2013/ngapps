@@ -1,21 +1,21 @@
 var data = [
-  {id: 1, author: "Pete Hunt", text: "This is one comment"},
-  {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
+  {id: 1, name: "Pete Hunt", number: "This is one comment"},
+  {id: 2, name: "Jordan Walke", number: "This is *another* comment"}
 ];
 
 function renderComment(){
-	return <div className='comment'>
-		       <h4>{this.props.author}</h4>
-		       {this.props.children}
-		   </div>
+	return <li className='comment'>
+		       <a href={'/api/doc/'+ this.props.id}>{this.props.name}</a>
+		       <p>{this.props.number}</p>
+		   </li>
 }
 
 function renderCommentList(){
 	var comments = this.props.data.map(function(c){
-		return <Comment author = {c.cuthor}  key={c.id}>{c.text}</Comment>;
+		return <Comment name = {c.name}  key={c.id} number={c.number} id={c.id}></Comment>;
 	});
 	
-	return <div className='commentList'>{comments} </div>;		  
+	return <ul className='commentList'>{comments} </ul>;		  
 }
 
 function renderForm(){
@@ -25,15 +25,30 @@ function renderForm(){
 function renderCommentBox(){
 	return <div className='commentBox'>
 				<h2>Comments</h2>
-				<CommentList data = {this.props.data}/>
+				<CommentList data = {this.state.data}/>
 				<CommentForm />
 			</div>;
 }
 
+function gis_CommentBox(){
+	return {data : data};
+}
+
+function cdm_CommentBox(){
+	$.getJSON('/api/doc', function(res){
+		this.setState({data : res.result});
+	}.bind(this));
+}
+
 var Comment     = React.createClass({ render : renderComment });
 var CommentList = React.createClass({ render : renderCommentList});
-var CommentBox  = React.createClass({ render : renderCommentBox});
 var CommentForm = React.createClass({ render : renderForm });
+
+var CommentBox  = React.createClass({ 
+	render : renderCommentBox, 
+	getInitialState : gis_CommentBox, 
+	componentDidMount : cdm_CommentBox
+});
 
 
 ReactDOM.render(
