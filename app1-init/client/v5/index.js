@@ -44,11 +44,13 @@ var Comment     = React.createClass({ render : renderComment });
 var CommentList = React.createClass({ render : renderCommentList});
 var CommentForm = React.createClass({ render : renderForm });
 
-var CommentBox  = React.createClass({ 
+var CommentBoxClass = {
 	render : renderCommentBox, 
 	getInitialState : gis_CommentBox, 
 	componentDidMount : cdm_CommentBox
-});
+};
+
+var CommentBox  = React.createClass(CommentBoxClass);
 
 
 ReactDOM.render(
