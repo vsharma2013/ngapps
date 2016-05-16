@@ -1,3 +1,4 @@
+(function(){
 var data = [
   {id: 1, name: "Pete Hunt", number: "This is one comment"},
   {id: 2, name: "Jordan Walke", number: "This is *another* comment"}
@@ -56,4 +57,6 @@ var CommentBox  = React.createClass(CommentBoxClass);
 ReactDOM.render(
 	<CommentBox data = {data}/>, 
 	document.getElementById('content')
-);
+);	
+})();
+
