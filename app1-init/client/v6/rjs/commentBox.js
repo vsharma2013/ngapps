@@ -7,27 +7,27 @@ var data = [
 
 var CommentList = ns.core.CommentList;
 
-function renderCommentBox(){
+function render(){
 	return <div className='commentBox'>
 				<h2>Comments</h2>
 				<CommentList data = {this.state.data}/>
 			</div>;
 }
 
-function gis_CommentBox(){
+function getInitialState(){
 	return {data : data};
 }
 
-function cdm_CommentBox(){
+function componentDidMount(){
 	$.getJSON('/api/doc', function(res){
 		this.setState({data : res.result});
 	}.bind(this));
 }
 
 var CommentBoxClass = {
-	render : renderCommentBox, 
-	getInitialState : gis_CommentBox, 
-	componentDidMount : cdm_CommentBox
+	render : render, 
+	getInitialState : getInitialState, 
+	componentDidMount : componentDidMount
 };
 
 var CommentBox  = React.createClass(CommentBoxClass);
