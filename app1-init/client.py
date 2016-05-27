@@ -19,4 +19,4 @@ emp1.displayAllCount()
 emp1.age = 55
 
 print 'Employee 1 added age = ', emp1.age
-print 'Parent person name : ', per1.name
+print 'Parent person name : ', emp1.printName()

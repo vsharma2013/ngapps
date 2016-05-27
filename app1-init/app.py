@@ -2,6 +2,8 @@ class Person:
 	def __init__(self, name):
 		self.name = name
 
+	def printName(self):
+		print 'My Name is ', self.name
 
 
 
