@@ -1,8 +1,15 @@
-class Employee:
+class Person:
+	def __init__(self, name):
+		self.name = name
+
+
+
+
+class Employee(Person):
 	_gEmployeeCount = 0
 
 	def __init__(self, name, sal):
-		self.name = name
+		Person.__init__(self, name)
 		self.salary = sal
 		Employee._gEmployeeCount += 1
 
